@@ -15,7 +15,7 @@ export default function Home() {
               alt="Foto de perfil"
               className="w-30 h-30 rounded-full"
             />
-            <h2 class="mt-3 text-lg font-semibold">Maya</h2>
+            <h2 class="mt-3 text-lg font-semibold">Alex Turner</h2>
             <p class="text-sm text-gray-300">20/09/2025</p>
           </div>
 
@@ -45,25 +45,25 @@ export default function Home() {
 
       <div className="bg-transparent rounded-lg shadow-md p-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="text-center p-4 bg-green-50 rounded-lg">
-            <div className="text-3xl font-bold text-green-600">
+          <div className="p-4">
+            <div className="text-3xl font-bold text-white">
               {contarTotalMusicas()}
             </div>
-            <div className="text-gray-700">Total de reproduções</div>
+            <div className="text-white">Total de reproduções</div>
           </div>
 
-          <div className="text-center p-4 bg-blue-50 rounded-lg">
-            <div className="text-lg font-semibold text-blue-600 truncate">
+          <div className="p-4">
+            <div className="text-lg font-semibold text-white truncate">
               {obterPrimeiraMusica()}
             </div>
-            <div className="text-gray-700">Primeira música no histórico</div>
+            <div className="text-white">Primeira música no histórico</div>
           </div>
 
-          <div className="text-center p-4 bg-purple-50 rounded-lg">
-            <div className="text-lg font-semibold text-purple-600 truncate">
+          <div className="p-4">
+            <div className="text-lg font-semibold text-white truncate">
               {encontrarArtistaMaisOuvido()}
             </div>
-            <div className="text-gray-700">Artista mais ouvido</div>
+            <div className="text-white">Artista mais ouvido</div>
           </div>
         </div>
       </div>
