@@ -1,12 +1,14 @@
 import Link from "next/link";
 import Image from "next/image";
 import dadosHistory from "../data/history.json";
+import artistasFotos from "../data/artistasFotos.json";
 
 export default function Top100Artistas() {
   if (!Array.isArray(dadosHistory) || dadosHistory.length === 0) {
     return <p>Nenhuma música encontrada</p>;
   }
 
+  // 1️⃣ Contar os plays de cada artista
   const contagemArtistas = {};
   dadosHistory.forEach((musica) => {
     const artista = musica.master_metadata_album_artist_name;
@@ -15,8 +17,13 @@ export default function Top100Artistas() {
     }
   });
 
+  // 2️⃣ Criar array de top 100 artistas
   const topArtistas = Object.entries(contagemArtistas)
-    .map(([artista, plays]) => ({ artista, plays }))
+    .map(([artista, plays]) => ({
+      artista,
+      plays,
+      imagem: artistasFotos[artista] || "/avatar-placeholder.png", // pega a foto do mapa
+    }))
     .sort((a, b) => b.plays - a.plays)
     .slice(0, 100);
 
@@ -35,18 +42,19 @@ export default function Top100Artistas() {
           Ver Top 100 Músicas →
         </Link>
       </div>
+
       <div className="p-6">
         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4">
           {topArtistas.map((artistaObj) => (
             <Link
               key={artistaObj.artista}
-              href={`/artista/${encodeURIComponent(artistaObj.artista)}`} // link dinâmico
+              href={`/artista/${encodeURIComponent(artistaObj.artista)}`}
               className="flex flex-col items-center bg-gray-800 rounded-lg p-4 hover:bg-gray-700 transition"
             >
-              {/* Avatar do artista */}
+              {/* Foto do artista */}
               <div className="w-20 h-20 mb-2">
                 <Image
-                  src="/avatar-placeholder.png" // Substitua pelo avatar real se tiver
+                  src={artistaObj.imagem}
                   alt={artistaObj.artista}
                   width={80}
                   height={80}
