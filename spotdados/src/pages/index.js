@@ -3,9 +3,17 @@ import {
   obterPrimeiraMusica,
   encontrarArtistaMaisOuvido,
 } from "@/utils/dataProcessing";
+import Image from "next/image";
 
 export default function Home() {
   return (
+    <div>
+        <Image 
+      src="/spotidados.png" 
+      alt="Meu Logo" 
+      width={100} 
+      height={100}
+    />
     <div className="space-y-6">
       <div class="max-w-2xl mx-auto p-6 rounded-2xl bg-transparent text-white">
         <div class="flex items-start gap-6">
@@ -67,6 +75,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }
