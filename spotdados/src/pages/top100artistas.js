@@ -38,12 +38,13 @@ export default function Top100Artistas() {
       <div className="p-6">
         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4">
           {topArtistas.map((artistaObj) => (
-            <div
+            <Link
               key={artistaObj.artista}
-              className="flex flex-col items-center bg-gray-800 rounded-lg p-4"
+              href={`/artista/${encodeURIComponent(artistaObj.artista)}`} // link dinâmico
+              className="flex flex-col items-center bg-gray-800 rounded-lg p-4 hover:bg-gray-700 transition"
             >
-              {/* Avatar do artista (usando imagem genérica, você pode trocar por URL real) */}
-              <div className="w-8 h-8 mb-2">
+              {/* Avatar do artista */}
+              <div className="w-20 h-20 mb-2">
                 <Image
                   src="/avatar-placeholder.png" // Substitua pelo avatar real se tiver
                   alt={artistaObj.artista}
@@ -60,7 +61,7 @@ export default function Top100Artistas() {
 
               {/* Plays */}
               <p className="text-gray-400 text-xs">{artistaObj.plays} plays</p>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
