@@ -1,7 +1,15 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Top100Musicas() {
   return (
+    <div>
+        <Image 
+                  src="/spotidados.png" 
+                  alt="Meu Logo" 
+                  width={100} 
+                  height={100}
+                  />
     <div className="bg-white rounded-lg shadow-md p-6">
       <h1 className="text-3xl font-bold text-gray-900 mb-4">
         Top 100 Músicas
@@ -15,6 +23,7 @@ export default function Top100Musicas() {
       >
         Ver Top 100 Artistas →
       </Link>
+    </div>
     </div>
   );
 }
