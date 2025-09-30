@@ -17,8 +17,8 @@ export default function Navbar2() {
       </div>
       <div>
         <Link
-          href="/estatisticas"
-          className={isActive("/estatisticas") ? " p-2" : "p-2"}
+          href="/top100artistas"
+          className={isActive("/top100artistas") ? " p-2" : "p-2"}
         >
           <MdAutoGraph className="size-5" />
         </Link>
