@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { FaRegUser } from "react-icons/fa";
 
 export default function Navbar2() {
   const router = useRouter();
@@ -12,7 +13,7 @@ export default function Navbar2() {
           href="/perfil"
           className={isActive("/perfil") ? " p-2" : "p-2"}
         >
-          👤
+          <FaRegUser />
         </Link>
       </div>
       <div>
@@ -21,14 +22,6 @@ export default function Navbar2() {
           className={isActive("/estatisticas") ? " p-2" : "p-2"}
         >
           📊
-        </Link>
-      </div>
-      <div>
-        <Link
-          href="/pesquisa"
-          className={isActive("/pesquisa") ? " p-2" : "p-2"}
-        >
-          🔍
         </Link>
       </div>
     </nav>
